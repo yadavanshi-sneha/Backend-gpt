@@ -29,7 +29,7 @@ jobs:
       run: |
         if [ -f /tmp/env_backup ]; then mv /tmp/env_backup .env; fi
         run:
-        if [-f .env]; then mv .env /tmp/env_backup; fi
+        if [ -f .env ]; then mv .env /tmp/env_backup; fi
 
       
     - name: Use Node.js ${{ matrix.node-version }}
