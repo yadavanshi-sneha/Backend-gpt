@@ -8,19 +8,14 @@ import chatRoutes from "./routes/chat.js";
 const app = express();
 const PORT = 8000;
 
-app.use(cors({
-      origin:"http://ec2-16-176-211-221.ap-southeast-2.compute.amazonaws.com",
-      methods: ["GET", "POST", "DELETE", "PUT"],
-      credentials: true
-}));
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 
 
 app.use("/api", chatRoutes);
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on ${PORT}`);
   connectDB();
 });
